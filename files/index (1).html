@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>happy 1 year, baby 💗</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-1: #FFE9EF;
+    --bg-2: #F1E6FF;
+    --bg-3: #E1FBF2;
+    --ink: #37193B;
+    --ink-soft: #7C5E82;
+    --pink: #FF6F91;
+    --pink-deep: #E14C74;
+    --pink-light: #FFD9E3;
+    --lavender: #9B6DFF;
+    --lavender-deep: #7A46E8;
+    --lavender-light: #E7DCFF;
+    --yellow: #FFC857;
+    --mint: #45D6AE;
+    --mint-light: #D3FAEF;
+    --card: rgba(255,255,255,0.86);
+    --shadow-pink: rgba(255,111,145,0.38);
+    --shadow-lav: rgba(155,109,255,0.32);
+    --shadow-mint: rgba(69,214,174,0.32);
+  }
+
+  * { box-sizing: border-box; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    background: var(--bg-1);
+    color: var(--ink);
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  h1, h2, .display{
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  section{
+    position: relative;
+    padding: 6rem 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  /* ---------- ambient background mesh ---------- */
+  .bg-mesh{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .bg-mesh span{
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.55;
+    animation: drift 26s ease-in-out infinite;
+  }
+
+  .bg-mesh span:nth-child(1){ width: 40vw; height: 40vw; background: var(--pink-light); top: -10%; left: -8%; animation-duration: 24s; }
+  .bg-mesh span:nth-child(2){ width: 34vw; height: 34vw; background: var(--lavender-light); top: 20%; right: -10%; animation-duration: 30s; animation-delay: -6s; }
+  .bg-mesh span:nth-child(3){ width: 36vw; height: 36vw; background: var(--mint-light); bottom: -8%; left: 8%; animation-duration: 28s; animation-delay: -12s; }
+  .bg-mesh span:nth-child(4){ width: 26vw; height: 26vw; background: var(--yellow); opacity: 0.18; bottom: 10%; right: 12%; animation-duration: 22s; animation-delay: -4s; }
+
+  @keyframes drift{
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(4%, 6%) scale(1.08); }
+    66% { transform: translate(-5%, -3%) scale(0.95); }
+  }
+
+  /* ---------- scroll progress ---------- */
+  .progress-bar{
+    position: fixed;
+    top: 0; left: 0;
+    height: 4px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--pink), var(--lavender), var(--mint));
+    z-index: 100;
+    transition: width 0.08s linear;
+  }
+
+  /* ---------- cursor sparkle trail ---------- */
+  .trail-heart{
+    position: fixed;
+    pointer-events: none;
+    z-index: 99;
+    font-size: 0.9rem;
+    animation: trail-fade 0.9s ease-out forwards;
+  }
+
+  @keyframes trail-fade{
+    0% { opacity: 0.85; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -140%) scale(0.4); }
+  }
+
+  /* ---------- click burst ---------- */
+  .burst-heart{
+    position: fixed;
+    pointer-events: none;
+    z-index: 98;
+    font-size: 1.1rem;
+    animation: burst-fly 0.9s ease-out forwards;
+  }
+
+  @keyframes burst-fly{
+    0% { opacity: 1; transform: translate(-50%, -50%) translate(0,0) scale(0.6) rotate(0deg); }
+    100% { opacity: 0; transform: translate(-50%, -50%) translate(var(--bx), var(--by)) scale(1.1) rotate(var(--br)); }
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height: 100svh;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 1.5rem;
+    cursor: pointer;
+  }
+
+  .hearts-field{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .float-heart{
+    position: absolute;
+    bottom: -10%;
+    opacity: 0.55;
+    animation: rise linear infinite;
+    will-change: transform;
+  }
+
+  @keyframes rise{
+    0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.5; }
+    100% { transform: translateY(-118vh) translateX(var(--drift, 20px)) rotate(20deg); opacity: 0; }
+  }
+
+  .hero-content{ position: relative; z-index: 1; }
+
+  .eyebrow-note{
+    font-family: 'Caveat', cursive;
+    font-size: 1.7rem;
+    color: var(--pink-deep);
+    margin-bottom: 0.2rem;
+    opacity: 0;
+    animation: fade-in 0.8s ease forwards;
+    animation-delay: 0.1s;
+  }
+
+  .hero h1{
+    font-size: clamp(2.6rem, 8vw, 4.8rem);
+    line-height: 1.05;
+    color: var(--ink);
+  }
+
+  .hero h1 .letter{
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(0.4em) rotate(-4deg);
+    animation: letter-pop 0.6s cubic-bezier(.2,1.4,.4,1) forwards;
+  }
+
+  .hero h1 .highlight .letter{ color: var(--pink-deep); }
+
+  @keyframes letter-pop{
+    to { opacity: 1; transform: translateY(0) rotate(0deg); }
+  }
+
+  @keyframes fade-in{
+    to { opacity: 1; }
+  }
+
+  .hero-date{
+    margin-top: 1.1rem;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    opacity: 0;
+    animation: fade-in 0.8s ease forwards;
+    animation-delay: 1.3s;
+  }
+
+  .counter-wrap{
+    margin-top: 2.6rem;
+    background: var(--card);
+    backdrop-filter: blur(10px);
+    border-radius: 28px;
+    padding: 1.3rem 2.2rem;
+    box-shadow: 0 20px 44px var(--shadow-pink);
+    display: inline-flex;
+    align-items: center;
+    gap: 1.6rem;
+    opacity: 0;
+    animation: fade-in 0.8s ease forwards;
+    animation-delay: 1.6s;
+  }
+
+  .counter-item{ display: flex; flex-direction: column; align-items: center; }
+
+  .counter-number{
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    color: var(--pink-deep);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .counter-label{
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    font-weight: 700;
+    text-transform: lowercase;
+    margin-top: 0.15rem;
+  }
+
+  .counter-divider{ color: var(--pink-light); font-size: 1.4rem; }
+
+  .scroll-cue{
+    margin-top: 3rem;
+    font-size: 1.8rem;
+    animation: bob 2.2s ease-in-out infinite;
+    color: var(--pink);
+    opacity: 0;
+    animation: fade-in 0.8s ease forwards, bob 2.2s ease-in-out 2.4s infinite;
+    animation-delay: 2s;
+  }
+
+  @keyframes bob{
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
+
+  .hero-hint{
+    position: absolute;
+    bottom: 1.2rem;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    opacity: 0.65;
+    z-index: 1;
+  }
+
+  /* ---------- shared section heading ---------- */
+  .section-tag{
+    display: block;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    color: var(--pink-deep);
+    margin-bottom: 0.2rem;
+  }
+
+  .section-heading{
+    text-align: center;
+    font-size: clamp(1.9rem, 5vw, 2.5rem);
+    margin-bottom: 2.6rem;
+    color: var(--ink);
+  }
+
+  .reveal{
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.2,.7,.2,1);
+  }
+
+  .reveal.in{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---------- stats / our story ---------- */
+  .stats-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .stat-card{
+    background: var(--card);
+    backdrop-filter: blur(8px);
+    border-radius: 22px;
+    padding: 1.6rem 1.2rem;
+    text-align: center;
+    box-shadow: 0 14px 30px var(--shadow-lav);
+  }
+
+  .stat-card:nth-child(2n){ box-shadow: 0 14px 30px var(--shadow-mint); }
+  .stat-card:nth-child(3n){ box-shadow: 0 14px 30px var(--shadow-pink); }
+
+  .stat-number{
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+    color: var(--lavender-deep);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-card:nth-child(2n) .stat-number{ color: #1A9C7C; }
+  .stat-card:nth-child(3n) .stat-number{ color: var(--pink-deep); }
+
+  .stat-label{
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+
+  .stat-note{
+    margin-top: 3rem;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- envelope / letter ---------- */
+  .envelope-zone{ text-align: center; }
+
+  .envelope{
+    position: relative;
+    width: min(360px, 85vw);
+    margin: 0 auto;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+    display: block;
+    perspective: 1200px;
+  }
+
+  .envelope-body{
+    position: relative;
+    width: 100%;
+    padding-top: 66%;
+    background: linear-gradient(155deg, var(--pink-light), #fff);
+    border-radius: 16px;
+    box-shadow: 0 20px 44px var(--shadow-pink);
+    overflow: hidden;
+  }
+
+  .envelope-flap{
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 0;
+    border-left: calc(50%) solid transparent;
+    border-right: calc(50%) solid transparent;
+    border-top: 62% solid var(--pink);
+    transform-origin: top;
+    transition: transform 0.7s cubic-bezier(.3,.9,.3,1.1);
+    z-index: 2;
+  }
+
+  .envelope.open .envelope-flap{
+    transform: rotateX(180deg);
+  }
+
+  .envelope-seal{
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.7rem;
+    z-index: 3;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .envelope:hover .envelope-seal:not(.hidden-seal){ transform: translate(-50%, -50%) scale(1.12); }
+  .envelope.open .envelope-seal{ opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+
+  .envelope-hint{
+    margin-top: 1.2rem;
+    font-weight: 700;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  .letter{
+    max-width: 500px;
+    margin: 2rem auto 0;
+    background: var(--card);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 2.3rem 2.1rem;
+    box-shadow: 0 22px 50px var(--shadow-pink);
+    font-family: 'Caveat', cursive;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: var(--ink);
+    text-align: left;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(-18px) scale(0.96);
+    transition: opacity 0.6s ease, max-height 0.8s ease, margin 0.6s ease, transform 0.6s cubic-bezier(.2,.8,.3,1.1);
+  }
+
+  .letter.show{
+    opacity: 1;
+    max-height: 900px;
+    margin-top: 2.2rem;
+    transform: translateY(0) scale(1);
+  }
+
+  .letter-sign{
+    display: block;
+    margin-top: 1.2rem;
+    text-align: right;
+    font-size: 1.45rem;
+    color: var(--pink-deep);
+  }
+
+  /* ---------- reasons flip cards ---------- */
+  .reasons-head{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.4rem;
+  }
+
+  .shuffle-btn{
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: #fff;
+    background: linear-gradient(135deg, var(--lavender), var(--lavender-deep));
+    border: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 10px 22px var(--shadow-lav);
+    transition: transform 0.2s ease;
+  }
+
+  .shuffle-btn:hover{ transform: translateY(-2px) scale(1.03); }
+  .shuffle-btn:active{ transform: translateY(0) scale(0.98); }
+
+  .reasons-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .flip-card{
+    perspective: 1000px;
+    height: 155px;
+  }
+
+  .flip-card-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(.4,.2,.2,1);
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+
+  .flip-card.flipped .flip-card-inner{
+    transform: rotateY(180deg) rotateX(var(--tiltx, 0deg));
+  }
+
+  .flip-card.spotlight .flip-face{
+    box-shadow: 0 0 0 3px var(--yellow), 0 16px 30px var(--shadow-lav);
+  }
+
+  .flip-face{
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-weight: 700;
+    font-size: 0.98rem;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .flip-front{
+    background: var(--lavender-light);
+    color: var(--ink);
+    box-shadow: 0 12px 26px var(--shadow-lav);
+  }
+
+  .flip-back{
+    background: linear-gradient(155deg, var(--lavender), var(--lavender-deep));
+    color: #fff;
+    transform: rotateY(180deg);
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 0.92rem;
+    line-height: 1.35;
+  }
+
+  .flip-card:nth-child(3n+2) .flip-front{ background: var(--mint-light); box-shadow: 0 12px 26px var(--shadow-mint); }
+  .flip-card:nth-child(3n+2) .flip-back{ background: linear-gradient(155deg, var(--mint), #1A9C7C); color: #06382D; }
+  .flip-card:nth-child(3n) .flip-front{ background: var(--pink-light); box-shadow: 0 12px 26px var(--shadow-pink); }
+  .flip-card:nth-child(3n) .flip-back{ background: linear-gradient(155deg, var(--pink), var(--pink-deep)); color: #fff; }
+
+  .flip-icon{ font-size: 1.7rem; display: block; margin-bottom: 0.2rem; }
+
+  /* ---------- photo gallery (developing polaroid) ---------- */
+  .gallery-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+    gap: 1.6rem 1.1rem;
+    padding-top: 0.5rem;
+  }
+
+  .polaroid{
+    background: #fff;
+    padding: 0.5rem 0.5rem 1rem;
+    border-radius: 6px;
+    box-shadow: 0 14px 28px rgba(55,25,59,0.18);
+    cursor: pointer;
+    transform: rotate(var(--tilt, 0deg)) translateY(16px);
+    opacity: 0;
+    transition: transform 0.9s cubic-bezier(.2,.7,.2,1), opacity 0.9s ease, box-shadow 0.25s ease;
+  }
+
+  .polaroid.developed{
+    opacity: 1;
+    transform: rotate(var(--tilt, 0deg)) translateY(0);
+  }
+
+  .polaroid:hover, .polaroid:focus-visible{
+    transform: rotate(0deg) translateY(0) scale(1.05);
+    box-shadow: 0 20px 36px rgba(55,25,59,0.28);
+  }
+
+  .polaroid .frame{
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+  }
+
+  .polaroid img{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    background: var(--pink-light);
+    filter: blur(10px) saturate(0.4) brightness(1.15);
+    transform: scale(1.08);
+    transition: filter 1.1s ease 0.15s, transform 1.1s ease 0.15s;
+  }
+
+  .polaroid.developed img{
+    filter: blur(0) saturate(1) brightness(1);
+    transform: scale(1);
+  }
+
+  .polaroid .cap{
+    display: block;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    padding-top: 0.4rem;
+  }
+
+  .polaroid img.missing{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: none;
+    transform: none;
+  }
+
+  /* lightbox */
+  .lightbox{
+    position: fixed;
+    inset: 0;
+    background: rgba(55,25,59,0.82);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 150;
+    padding: 2rem;
+  }
+
+  .lightbox.active{ display: flex; }
+
+  .lightbox img{
+    max-width: min(90vw, 560px);
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+  }
+
+  .lightbox-close{
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: var(--ink);
+  }
+
+  /* ---------- footer / easter egg ---------- */
+  footer{
+    text-align: center;
+    padding: 4.5rem 1.5rem 6rem;
+    position: relative;
+  }
+
+  footer .sign{
+    font-family: 'Caveat', cursive;
+    font-size: 2.1rem;
+    color: var(--pink-deep);
+  }
+
+  .egg-btn{
+    margin-top: 1.6rem;
+    background: var(--card);
+    border: none;
+    border-radius: 999px;
+    width: 62px;
+    height: 62px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    box-shadow: 0 14px 30px var(--shadow-pink);
+    transition: transform 0.2s cubic-bezier(.3,1.4,.4,1);
+  }
+
+  .egg-btn:hover{ transform: scale(1.08); }
+  .egg-btn.pulse{ animation: egg-pulse 0.4s ease; }
+
+  @keyframes egg-pulse{
+    0% { transform: scale(1); }
+    40% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+  }
+
+  .egg-hint{
+    margin-top: 0.8rem;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    opacity: 0.75;
+  }
+
+  .secret-msg{
+    max-width: 420px;
+    margin: 1.8rem auto 0;
+    background: linear-gradient(155deg, var(--yellow), #FFB020);
+    color: #4A2E00;
+    border-radius: 18px;
+    padding: 1.4rem 1.6rem;
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    box-shadow: 0 16px 34px rgba(255,193,7,0.4);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.6s ease, max-height 0.6s ease, margin 0.6s ease;
+  }
+
+  .secret-msg.show{
+    opacity: 1;
+    max-height: 300px;
+    margin-top: 1.8rem;
+  }
+
+  footer .tiny{
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    opacity: 0.7;
+  }
+
+  a:focus-visible, button:focus-visible, .polaroid:focus-visible, .flip-card:focus-visible{
+    outline: 3px solid var(--lavender-deep);
+    outline-offset: 3px;
+  }
+
+  /* ---------- lock screen ---------- */
+  #siteContent{ display: none; }
+  #siteContent.unlocked{ display: block; }
+
+  .lock-screen{
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: linear-gradient(160deg, var(--bg-1), var(--bg-2) 60%, var(--bg-3));
+  }
+
+  .lock-screen.hidden{ display: none; }
+
+  .lock-card{
+    background: var(--card);
+    backdrop-filter: blur(10px);
+    border-radius: 26px;
+    padding: 2.4rem 2rem;
+    max-width: 340px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 24px 50px var(--shadow-pink);
+  }
+
+  .lock-heart{ font-size: 2.2rem; }
+
+  .lock-card h2{
+    font-size: 1.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .lock-card p{
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+  }
+
+  .lock-form{
+    margin-top: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .lock-input{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 14px;
+    border: 2px solid var(--pink-light);
+    background: #fff;
+    color: var(--ink);
+    text-align: center;
+  }
+
+  .lock-input:focus{
+    outline: none;
+    border-color: var(--pink);
+  }
+
+  .lock-submit{
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #fff;
+    background: linear-gradient(135deg, var(--pink), var(--pink-deep));
+    border: none;
+    border-radius: 999px;
+    padding: 0.75rem 1.2rem;
+    cursor: pointer;
+  }
+
+  .lock-error{
+    color: var(--pink-deep);
+    font-size: 0.85rem;
+    font-weight: 700;
+    min-height: 1.2em;
+  }
+</style>
+</head>
+<body>
+
+<div class="lock-screen" id="lockScreen">
+  <div class="lock-card">
+    <div class="lock-heart">🔒💗</div>
+    <h2>this one's just for you</h2>
+    <p>enter the password to open it</p>
+    <form class="lock-form" id="lockForm">
+      <input class="lock-input" type="password" id="lockInput" placeholder="password" autocomplete="off">
+      <button class="lock-submit" type="submit">unlock ✨</button>
+      <p class="lock-error" id="lockError"></p>
+    </form>
+  </div>
+</div>
+
+<div id="siteContent">
+
+<div class="progress-bar" id="progressBar"></div>
+<div class="bg-mesh" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+<section class="hero" id="heroSection">
+  <div class="hearts-field" id="heartsField" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="eyebrow-note">for my baby</p>
+    <h1 id="heroTitle"></h1>
+    <p class="hero-date">i love you the most</p>
+    <div class="counter-wrap">
+      <div class="counter-item"><span class="counter-number" id="cDays">0</span><span class="counter-label">days</span></div>
+      <span class="counter-divider">·</span>
+      <div class="counter-item"><span class="counter-number" id="cHours">0</span><span class="counter-label">hours</span></div>
+      <span class="counter-divider">·</span>
+      <div class="counter-item"><span class="counter-number" id="cMins">0</span><span class="counter-label">mins</span></div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">↓</div>
+  </div>
+  <p class="hero-hint">tap anywhere for a little sparkle ✨</p>
+</section>
+
+<section>
+  <span class="section-tag reveal">the numbers</span>
+  <h2 class="section-heading reveal">our story so far</h2>
+  <div class="stats-grid reveal" id="statsGrid"></div>
+  <p class="stat-note reveal">(the hug math is very, very rough)</p>
+</section>
+
+<section class="envelope-zone">
+  <span class="section-tag reveal">open me</span>
+  <h2 class="section-heading reveal">i wrote you something</h2>
+  <button class="envelope reveal" id="envelopeBtn" aria-expanded="false" aria-controls="letterBox">
+    <div class="envelope-body">
+      <div class="envelope-flap"></div>
+      <div class="envelope-seal">💌</div>
+    </div>
+  </button>
+  <p class="envelope-hint reveal" id="envelopeHint">tap the envelope to open it</p>
+  <div class="letter" id="letterBox">
+    Hi baby, happy 1 year. This has been a roller coaster, but I wouldn't want anything else.
+    <br><br>
+    Thank you for always being with me. Thank you for making me laugh. Thank you for being calm to my chaos.
+    <span class="letter-sign">i love you 💗</span>
+  </div>
+</section>
+
+<section>
+  <div class="reasons-head">
+    <span class="section-tag reveal" style="margin-bottom:0;">tap to flip</span>
+  </div>
+  <h2 class="section-heading reveal">reasons i love you</h2>
+  <div class="reasons-head reveal">
+    <button class="shuffle-btn" id="surpriseBtn">🎲 surprise me</button>
+  </div>
+  <div class="reasons-grid reveal" id="reasonsGrid"></div>
+</section>
+
+<section>
+  <span class="section-tag reveal">watch them develop</span>
+  <h2 class="section-heading reveal">our little moments</h2>
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+
+<footer>
+  <p class="sign">here's to being stronger together, baby 💗</p>
+  <button class="egg-btn" id="eggBtn" aria-label="Tap for a surprise">💗</button>
+  <p class="egg-hint">(tap the heart three times)</p>
+  <div class="secret-msg" id="secretMsg">you found the secret message — you better plan at least 3 trips before our 2nd anniversary, or face my wrath 😤💗</div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close photo">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+</div><!-- /#siteContent -->
+
+<script>
+  // ---- password gate ----
+  // 👉 change the word below (keep the quotes) to set your password
+  const SITE_PASSWORD = "1513";
+
+  const lockScreen = document.getElementById('lockScreen');
+  const siteContent = document.getElementById('siteContent');
+  const lockForm = document.getElementById('lockForm');
+  const lockInput = document.getElementById('lockInput');
+  const lockError = document.getElementById('lockError');
+
+  function unlockSite(){
+    lockScreen.classList.add('hidden');
+    siteContent.classList.add('unlocked');
+    sessionStorage.setItem('annivUnlocked', 'yes');
+    initSite();
+  }
+
+  if (sessionStorage.getItem('annivUnlocked') === 'yes'){
+    unlockSite();
+  } else {
+    lockForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (lockInput.value.trim().toLowerCase() === SITE_PASSWORD.trim().toLowerCase()){
+        unlockSite();
+      } else {
+        lockError.textContent = "that's not it — try again 💗";
+        lockInput.value = '';
+        lockInput.focus();
+      }
+    });
+  }
+
+  function initSite(){
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fineCursor = window.matchMedia('(pointer: fine)').matches;
+
+  // ---- scroll progress ----
+  const progressBar = document.getElementById('progressBar');
+  const updateProgress = () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progressBar.style.width = (isFinite(scrolled) ? scrolled : 0) + '%';
+  };
+  document.addEventListener('scroll', updateProgress, { passive: true });
+
+  // ---- hero title letter-by-letter ----
+  const heroTitle = document.getElementById('heroTitle');
+  const buildLetters = (text, wrapClass, startDelay) => {
+    const span = document.createElement('span');
+    if (wrapClass) span.className = wrapClass;
+    [...text].forEach((ch, i) => {
+      const l = document.createElement('span');
+      l.className = 'letter';
+      l.textContent = ch === ' ' ? '\u00A0' : ch;
+      l.style.animationDelay = (startDelay + i * 0.035) + 's';
+      span.appendChild(l);
+    });
+    return span;
+  };
+  heroTitle.appendChild(buildLetters('Happy ', null, 0.1));
+  heroTitle.appendChild(buildLetters('1 Year', 'highlight', 0.35));
+  heroTitle.appendChild(document.createElement('br'));
+  heroTitle.appendChild(buildLetters('Anniversary', null, 0.75));
+
+  // ---- floating hearts (parallax) ----
+  const heartsField = document.getElementById('heartsField');
+  const heartEmojis = ['💗','💕','💓','✨'];
+  const totalHearts = window.matchMedia('(max-width: 600px)').matches ? 10 : 18;
+  const heartLayers = [];
+  for (let i = 0; i < totalHearts; i++){
+    const el = document.createElement('span');
+    el.className = 'float-heart';
+    el.textContent = heartEmojis[i % heartEmojis.length];
+    el.style.left = Math.random() * 100 + '%';
+    const speed = 0.15 + Math.random() * 0.35;
+    el.style.fontSize = (0.9 + speed) + 'rem';
+    el.style.setProperty('--drift', (Math.random() * 80 - 40) + 'px');
+    const duration = 9 + Math.random() * 8;
+    el.style.animationDuration = duration + 's';
+    el.style.animationDelay = (Math.random() * duration) + 's';
+    heartsField.appendChild(el);
+    heartLayers.push({ el, speed });
+  }
+  if (!reduceMotion){
+    document.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      heartLayers.forEach(({ el, speed }) => {
+        el.style.transform = `translateY(${y * speed * -0.15}px)`;
+      });
+    }, { passive: true });
+  }
+
+  // ---- particle bursts (reusable) ----
+  function spawnBurst(x, y, count = 10, emojis = ['💗','✨','💕']){
+    if (reduceMotion) return;
+    for (let i = 0; i < count; i++){
+      const p = document.createElement('span');
+      p.className = 'burst-heart';
+      p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      p.style.left = x + 'px';
+      p.style.top = y + 'px';
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 60 + Math.random() * 100;
+      p.style.setProperty('--bx', Math.cos(angle) * dist + 'px');
+      p.style.setProperty('--by', Math.sin(angle) * dist + 'px');
+      p.style.setProperty('--br', (Math.random() * 60 - 30) + 'deg');
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), 950);
+    }
+  }
+
+  document.getElementById('heroSection').addEventListener('click', (e) => {
+    spawnBurst(e.clientX, e.clientY, 8);
+  });
+
+  // ---- cursor sparkle trail ----
+  if (fineCursor && !reduceMotion){
+    let lastTrail = 0;
+    document.addEventListener('mousemove', (e) => {
+      const now = Date.now();
+      if (now - lastTrail < 60) return;
+      lastTrail = now;
+      const t = document.createElement('span');
+      t.className = 'trail-heart';
+      t.textContent = '✨';
+      t.style.left = e.clientX + 'px';
+      t.style.top = e.clientY + 'px';
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 900);
+    });
+  }
+
+  // ---- live day / hour / minute counter ----
+  const startDate = new Date('2025-09-14T00:00:00');
+  const cDays = document.getElementById('cDays');
+  const cHours = document.getElementById('cHours');
+  const cMins = document.getElementById('cMins');
+
+  function updateLiveCounter(){
+    const now = new Date();
+    const diffMs = Math.max(0, now - startDate);
+    const totalMinutes = Math.floor(diffMs / 60000);
+    const days = Math.floor(totalMinutes / 1440);
+    const hours = Math.floor((totalMinutes % 1440) / 60);
+    const mins = totalMinutes % 60;
+    cDays.textContent = days;
+    cHours.textContent = hours;
+    cMins.textContent = mins;
+    return { days, hours, mins, totalMinutes };
+  }
+  updateLiveCounter();
+  setInterval(updateLiveCounter, 1000 * 30);
+
+  // ---- stats section ----
+  const statsGrid = document.getElementById('statsGrid');
+  const { days: totalDays } = updateLiveCounter();
+  const statDefs = [
+    { label: 'days together', value: totalDays },
+    { label: 'weeks together', value: Math.floor(totalDays / 7) },
+    { label: 'hours together', value: totalDays * 24 },
+    { label: 'estimated hugs', value: Math.round(totalDays * 1.5) },
+  ];
+  statDefs.forEach((s) => {
+    const card = document.createElement('div');
+    card.className = 'stat-card';
+    card.innerHTML = `<div class="stat-number" data-target="${s.value}">0</div><div class="stat-label">${s.label}</div>`;
+    statsGrid.appendChild(card);
+  });
+
+  // ---- scroll reveal (IntersectionObserver) ----
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+  // ---- stat count-up when visible ----
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      statObserver.unobserve(entry.target);
+      const numEl = entry.target;
+      const target = parseInt(numEl.dataset.target, 10) || 0;
+      const step = Math.max(1, Math.ceil(target / 60));
+      let current = 0;
+      const tick = () => {
+        current += step;
+        if (current >= target){ numEl.textContent = target; return; }
+        numEl.textContent = current;
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.stat-number').forEach((el) => statObserver.observe(el));
+
+  // ---- envelope open ----
+  const envelopeBtn = document.getElementById('envelopeBtn');
+  const letterBox = document.getElementById('letterBox');
+  const envelopeHint = document.getElementById('envelopeHint');
+  envelopeBtn.addEventListener('click', () => {
+    const isOpen = envelopeBtn.classList.toggle('open');
+    letterBox.classList.toggle('show', isOpen);
+    envelopeBtn.setAttribute('aria-expanded', String(isOpen));
+    envelopeHint.textContent = isOpen ? 'tap to close' : 'tap the envelope to open it';
+    if (isOpen){
+      const rect = envelopeBtn.getBoundingClientRect();
+      spawnBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 16);
+      letterBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  });
+
+  // ---- reasons data (edit freely) ----
+  const reasons = [
+    { icon: '🌷', front: 'your kindness', back: 'You are just kind, always, to everyone — including me on my worst days.' },
+    { icon: '🌊', front: 'you stay calm', back: 'Even when I create a total tornado, you stay so calm. I don\u2019t know how you do it.' },
+    { icon: '🌟', front: 'so tall, so pretty', back: 'You\u2019re so tall and so pretty and I still get a little shy about it.' },
+    { icon: '🎈', front: 'you lift me up', back: 'When I\u2019m down, you know exactly how to lift me back up.' },
+    { icon: '🤪', front: 'being silly', back: 'You\u2019re so silly with me and it makes everything lighter.' },
+    { icon: '🌙', front: 'bedtime stories', back: 'You tell me stories when I can\u2019t sleep, every single time.' },
+    { icon: '💗', front: 'you never let go', back: 'You never let me actually break up with you, even on the 4-times-a-month days.' },
+    { icon: '🤍', front: 'your hugs', back: 'You hug me exactly when I need it the most.' },
+  ];
+
+  const reasonsGrid = document.getElementById('reasonsGrid');
+  function renderReasons(){
+    reasonsGrid.innerHTML = '';
+    reasons.forEach((r) => {
+      const card = document.createElement('div');
+      card.className = 'flip-card';
+      card.tabIndex = 0;
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', 'Reveal reason: ' + r.front);
+      card.innerHTML = `
+        <div class="flip-card-inner">
+          <div class="flip-face flip-front">
+            <div><span class="flip-icon">${r.icon}</span>${r.front}</div>
+          </div>
+          <div class="flip-face flip-back">${r.back}</div>
+        </div>
+      `;
+      const toggle = () => card.classList.toggle('flipped');
+      card.addEventListener('click', toggle);
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
+      });
+      if (fineCursor && !reduceMotion){
+        const inner = card.querySelector('.flip-card-inner');
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const px = (e.clientX - rect.left) / rect.width - 0.5;
+          const py = (e.clientY - rect.top) / rect.height - 0.5;
+          inner.style.setProperty('--tiltx', (py * -8) + 'deg');
+          if (!card.classList.contains('flipped')){
+            inner.style.transform = `rotateX(${py * -8}deg) rotateY(${px * 8}deg)`;
+          }
+        });
+        card.addEventListener('mouseleave', () => {
+          if (!card.classList.contains('flipped')) inner.style.transform = '';
+        });
+      }
+      reasonsGrid.appendChild(card);
+    });
+  }
+  renderReasons();
+
+  document.getElementById('surpriseBtn').addEventListener('click', () => {
+    document.querySelectorAll('.flip-card').forEach((c) => { c.classList.remove('flipped', 'spotlight'); c.querySelector('.flip-card-inner').style.transform=''; });
+    const cards = document.querySelectorAll('.flip-card');
+    const pick = cards[Math.floor(Math.random() * cards.length)];
+    pick.classList.add('flipped', 'spotlight');
+    pick.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const rect = pick.getBoundingClientRect();
+    spawnBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 10);
+    setTimeout(() => pick.classList.remove('spotlight'), 2200);
+  });
+
+  // ---- photo gallery: developing polaroid ----
+  const photoCount = 10;
+  const galleryGrid = document.getElementById('galleryGrid');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+
+  const galleryObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting){
+        setTimeout(() => entry.target.classList.add('developed'), Math.random() * 300);
+        galleryObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  for (let i = 1; i <= photoCount; i++){
+    const src = `photos/photo${i}.jpg`;
+    const fig = document.createElement('div');
+    fig.className = 'polaroid';
+    fig.tabIndex = 0;
+    fig.setAttribute('role', 'button');
+    fig.setAttribute('aria-label', 'View photo ' + i);
+    fig.style.setProperty('--tilt', (Math.random() * 8 - 4) + 'deg');
+    fig.innerHTML = `<div class="frame"><img src="${src}" alt="A memory of us" loading="lazy"></div><span class="cap">✿</span>`;
+    const img = fig.querySelector('img');
+    img.addEventListener('error', () => {
+      img.classList.add('missing');
+      img.style.background = 'linear-gradient(135deg, var(--pink-light), var(--lavender-light))';
+      img.alt = 'Add photo' + i + '.jpg to the photos folder';
+    });
+    const open = () => {
+      if (img.classList.contains('missing')) return;
+      lightboxImg.src = src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+    };
+    fig.addEventListener('click', open);
+    fig.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(); }
+    });
+    galleryGrid.appendChild(fig);
+    galleryObserver.observe(fig);
+  }
+
+  document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('active'));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('active'); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('active'); });
+
+  // ---- footer easter egg ----
+  const eggBtn = document.getElementById('eggBtn');
+  const secretMsg = document.getElementById('secretMsg');
+  let eggClicks = 0;
+  eggBtn.addEventListener('click', () => {
+    eggClicks++;
+    eggBtn.classList.remove('pulse');
+    void eggBtn.offsetWidth;
+    eggBtn.classList.add('pulse');
+    const rect = eggBtn.getBoundingClientRect();
+    spawnBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 6);
+    if (eggClicks >= 3){
+      spawnBurst(window.innerWidth / 2, window.innerHeight / 2, 30, ['💗','💕','💓','✨','🤍']);
+      secretMsg.classList.add('show');
+      eggClicks = 0;
+    }
+  });
+  } // end initSite
+</script>
+
+</body>
+</html>
